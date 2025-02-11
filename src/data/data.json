@@ -1,0 +1,186 @@
+[
+  {
+    "image": "https://example.com/keratherapy_smoothing_cream.jpg",
+    "price": 1200,
+    "description": "Keratherapy Keratin Infused Daily Smoothing Cream for smooth, manageable hair.",
+    "features": ["Keratin-infused", "Smoothing", "Daily use"]
+  },
+  {
+    "image": "https://example.com/naturica_moisturizing_conditioner.jpg",
+    "price": 950,
+    "description": "Naturica Moisturizing Defense Conditioner for hydrated and healthy hair.",
+    "features": ["Moisturizing", "Defense", "Healthy hair"]
+  },
+  {
+    "image": "https://example.com/loreal_professionnel_shampoo.jpg",
+    "price": 800,
+    "description": "L'Oréal Professionnel Shampoo for color protection and repair.",
+    "features": ["Color protection", "Repair", "Salon-quality"]
+  },
+  {
+    "image": "https://example.com/matrix_shampoo.jpg",
+    "price": 700,
+    "description": "Matrix Shampoo for various hair needs, including volume and hydration.",
+    "features": ["Volume", "Hydration", "Professional"]
+  },
+  {
+    "image": "https://example.com/schwarzkopf_hairspray.jpg",
+    "price": 600,
+    "description": "Schwarzkopf Extra Hold Hair Spray for long-lasting style.",
+    "features": ["Extra hold", "Long-lasting", "Salon professional"]
+  },
+  {
+    "image": "https://example.com/mamaearth_hair_mask.jpg",
+    "price": 450,
+    "description": "Mamaearth Onion Hair Mask for stronger hair from the roots.",
+    "features": ["Onion oil", "Reduces hair fall", "Natural ingredients"]
+  },
+  {
+    "image": "https://example.com/indulekha_bringha_oil.jpg",
+    "price": 550,
+    "description": "Indulekha Bringha Oil for hair loss and healthy new hair growth.",
+    "features": [
+      "Natural ingredients",
+      "Anti-hair fall",
+      "Promotes hair growth"
+    ]
+  },
+  {
+    "image": "https://example.com/head_and_shoulders_shampoo.jpg",
+    "price": 250,
+    "description": "Head & Shoulders Anti-Dandruff Cool Menthol Shampoo for dandruff-free scalp.",
+    "features": ["Anti-dandruff", "Cool menthol", "Refreshing"]
+  },
+  {
+    "image": "https://example.com/banana_hair_mask.jpg",
+    "price": 400,
+    "description": "Banana Hair Mask for smoother, nourished hair.",
+    "features": ["Banana", "Nourishing", "Vegan"]
+  },
+  {
+    "image": "https://example.com/keshlabh_hair_oil.jpg",
+    "price": 480,
+    "description": "Keshlabh Hair Oil for healthy hair using natural herbal ingredients.",
+    "features": ["Herbal", "Natural ingredients", "Affordable"]
+  },
+  {
+    "image": "https://example.com/star_hair_shampoo.jpg",
+    "price": 300,
+    "description": "Star Hair Shampoo for cleansing and maintaining hair.",
+    "features": ["Cleansing", "Maintaining", "Standard"]
+  },
+  {
+    "image": "https://example.com/forest_essentials_hair_ritual.jpg",
+    "price": 1500,
+    "description": "Forest Essentials Ritual for Nourished Hair with banana pulp and Ayurvedic herbs.",
+    "features": ["Ayurvedic", "Nourishing", "Sulfate-free"]
+  },
+  {
+    "image": "https://example.com/preeti_skin_kraft_hair_products.jpg",
+    "price": 1100,
+    "description": "Preeti’s Skin Kraft Hair Care Products to prevent hair fall and nourish hair.",
+    "features": ["Prevents hair fall", "Nourishing", "Research-backed"]
+  },
+  {
+    "image": "https://example.com/vedix_hair_care_regimen.jpg",
+    "price": 1300,
+    "description": "Vedix Ayurvedic Hair Care Regimen to stop hair fall and strengthen hair.",
+    "features": ["Ayurvedic", "Stops hair fall", "Strengthens hair"]
+  },
+  {
+    "image": "https://example.com/okra_shampoo_gel.jpg",
+    "price": 900,
+    "description": "Okra Protein Green Shampoo/Gel to strengthen hair and promote regrowth.",
+    "features": ["Strengthens hair", "Promotes regrowth", "Removes dandruff"]
+  },
+  {
+    "image": "https://example.com/streax_hair_serum.jpg",
+    "price": 350,
+    "description": "Streax Professional Hair Serum for smooth and manageable hair.",
+    "features": ["Hair serum", "Smooth", "Manageable"]
+  },
+  {
+    "image": "https://example.com/mamaearth_rosemary_oil.jpg",
+    "price": 420,
+    "description": "Mama Earth Rosemary Anti-Hair Fall Hair Growth Oil to reduce hair fall and add shine.",
+    "features": ["Rosemary", "Reduces hair fall", "Adds shine"]
+  },
+  {
+    "image": "https://example.com/kesh_king_shampoo.jpg",
+    "price": 380,
+    "description": "Kesh King Anti Hairfall Shampoo to stop hair fall and promote new hair growth.",
+    "features": ["Anti-hair fall", "Promotes hair growth", "Strengthens hair"]
+  },
+  {
+    "image": "https://example.com/genesis_shampoo.jpg",
+    "price": 1000,
+    "description": "Genesis Bain Hydra-Fortifiant Shampoo to reduce hair fall and provide nutrients.",
+    "features": ["Reduces hair fall", "Nutrients", "Hair growth"]
+  },
+  {
+    "image": "https://example.com/vaibhav_waxing_kit.jpg",
+    "price": 1600,
+    "description": "Professional Waxing Kit for hair removal needs.",
+    "features": ["Waxing", "Hair removal", "Professional"]
+  },
+  {
+    "image": "https://example.com/bodywise_hair_gummies.jpg",
+    "price": 750,
+    "description": "Hair Health Gummies (Bodywise) for hair wellness",
+    "features": ["Hair wellness", "Gummies", "Health"]
+  },
+  {
+    "image": "https://example.com/pantene_hair_conditioner.jpg",
+    "price": 280,
+    "description": "Pantene Hair Conditioner to smoothen hair",
+    "features": ["Smoothening", "Conditioner", "Hair"]
+  },
+  {
+    "image": "https://example.com/dove_hair_shampoo.jpg",
+    "price": 270,
+    "description": "Dove Hair shampoo for gentle cleaning",
+    "features": ["Cleaning", "Gentle", "Hair"]
+  },
+  {
+    "image": "https://example.com/wow_skin_science.jpg",
+    "price": 620,
+    "description": "Wow Skin Science for hair",
+    "features": ["hair", "skin", "science"]
+  },
+  {
+    "image": "https://example.com/biotique_shampoo.jpg",
+    "price": 190,
+    "description": "Biotique shampoo for hair",
+    "features": ["shampoo", "hair", "Biotique"]
+  },
+  {
+    "image": "https://example.com/sunsilk_shampoo.jpg",
+    "price": 150,
+    "description": "Sunsilk shampoo for hair",
+    "features": ["shampoo", "hair", "Sunsilk"]
+  },
+  {
+    "image": "https://example.com/clinic_plus_shampoo.jpg",
+    "price": 120,
+    "description": "Clinic Plus shampoo for hair",
+    "features": ["shampoo", "hair", "Clinic Plus"]
+  },
+  {
+    "image": "https://example.com/tresemme_shampoo.jpg",
+    "price": 330,
+    "description": "Tresemme shampoo for hair",
+    "features": ["shampoo", "hair", "Tresemme"]
+  },
+  {
+    "image": "https://example.com/loreal_paris_shampoo.jpg",
+    "price": 440,
+    "description": "Loreal Paris shampoo for hair",
+    "features": ["shampoo", "hair", "Loreal Paris"]
+  },
+  {
+    "image": "https://example.com/garnier_shampoo.jpg",
+    "price": 250,
+    "description": "Garnier shampoo for hair",
+    "features": ["shampoo", "hair", "Garnier"]
+  }
+]
