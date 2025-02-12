@@ -1,17 +1,13 @@
 import React from "react";
-
+import img from "../media/new_logo-removebg-preview.png";
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-lg">
+    <nav className="bg-[#e5e7fb] shadow-lg">
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img
-              className="h-8 w-auto"
-              src="/path-to-your-logo.png"
-              alt="Logo"
-            />
+            <img className="h-32 w-auto" src={img} alt="Logo" />
           </div>
 
           {/* Search Bar */}
@@ -45,8 +41,8 @@ const Navbar = () => {
           <div className="ml-4 flex items-center">
             <div className="h-8 w-8 rounded-full bg-gray-200">
               <img
-                className="h-8 w-8 rounded-full"
-                src="/path-to-user-avatar.png"
+                className="h-8 w-8 rounded-full cursor-pointer"
+                src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
                 alt="User avatar"
               />
             </div>

@@ -1,152 +1,148 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { data } from "../data/data";
 
 const ProductDetails = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    // Placeholder for the main product data (replace with actual data)
-    const product = {
-        id: id,
-        name: `Product ${id}`,
-        image: "https://via.placeholder.com/500",
-        price: "$99.99",
-        description: "This is a detailed description of the product.",
-        features: [
-            "High-quality material",
-            "Durable and long-lasting",
-            "Available in multiple sizes",
-        ],
-        reviews: [
-            { user: "John Doe", rating: 5, comment: "Great product!" },
-            { user: "Jane Smith", rating: 4, comment: "Good value for money." },
-        ],
-    };
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    // Sample related products data (replace with your actual related products)
-    const relatedProducts = [
-        {
-            id: parseInt(id) + 1,
-            name: `Product ${parseInt(id) + 1}`,
-            image: "image2.png/300",
-            price: "$89.99",
-        },
-        {
-            id: parseInt(id) + 2,
-            name: `Product ${parseInt(id) + 2}`,
-            image: "https://via.placeholder.com/300",
-            price: "$79.99",
-        },
-        {
-            id: parseInt(id) + 3,
-            name: `Product ${parseInt(id) + 3}`,
-            image: "https://via.placeholder.com/300",
-            price: "$69.99",
-        },
-        {
-            id: parseInt(id) + 4,
-            name: `Product ${parseInt(id) + 4}`,
-            image: "https://via.placeholder.com/300",
-            price: "$59.99",
-        },
-        {
-            id: parseInt(id) + 5,
-            name: `Product ${parseInt(id) + 5}`,
-            image: "https://via.placeholder.com/300",
-            price: "$49.99",
-        },
-        {
-            id: parseInt(id) + 6,
-            name: `Product ${parseInt(id) + 6}`,
-            image: "https://via.placeholder.com/300",
-            price: "$39.99",
-        },
-        {
-            id: parseInt(id) + 7,
-            name: `Product ${parseInt(id) + 7}`,
-            image: "https://via.placeholder.com/300",
-            price: "$29.99",
-        },
-        {
-            id: parseInt(id) + 8,
-            name: `Product ${parseInt(id) + 8}`,
-            image: "https://via.placeholder.com/300",
-            price: "$19.99",
-        },
-        {
-            id: parseInt(id) + 9,
-            name: `Product ${parseInt(id) + 9}`,
-            image: "https://via.placeholder.com/300",
-            price: "$9.99",
-        },
-        
-    ];
+  useEffect(() => {
+    try {
+      const foundProduct = data.find((item) => item.id.toString() === id);
+      if (foundProduct) {
+        setProduct(foundProduct);
+      } else {
+        setError("Product not found");
+      }
+    } catch (err) {
+      setError("Error loading product");
+    } finally {
+      setLoading(false);
+    }
+  }, [id]);
 
-    // Function to navigate to a product's details
-    const viewProductDetails = (productId) => {
-        navigate(`/product/${productId}`);
-    };
-
+  if (loading) {
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
-            <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
-                <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-96 object-cover rounded-lg"
-                />
-                <h1 className="text-3xl font-bold mt-4">{product.name}</h1>
-                <p className="text-xl text-blue-600 font-semibold">{product.price}</p>
-                <p className="text-gray-700 my-4">{product.description}</p>
-
-                <h2 className="text-xl font-semibold mt-6">Features:</h2>
-                <ul className="list-disc ml-6 text-gray-600">
-                    {product.features.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                    ))}
-                </ul>
-
-                <h2 className="text-xl font-semibold mt-6">Reviews:</h2>
-                <div className="bg-gray-50 p-4 rounded-lg mt-2">
-                    {product.reviews.length > 0 ? (
-                        product.reviews.map((review, index) => (
-                            <div key={index} className="mb-3 border-b pb-2">
-                                <p className="text-gray-800 font-bold">{review.user}</p>
-                                <p className="text-yellow-500">{"⭐".repeat(review.rating)}</p>
-                                <p className="text-gray-600">{review.comment}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No reviews yet.</p>
-                    )}
-                </div>
-            </div>
-
-            {/* You Might Also Love Section */}
-            <div className="max-w-4xl mx-auto mt-12">
-                <h2 className="text-2xl font-bold mb-6">You Might Also Love</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {relatedProducts.slice(0, 10).map((item) => (
-                        <div
-                            key={item.id}
-                            className="bg-white shadow-md rounded-lg overflow-hidden"
-                        >
-                            <img
-                                src={item.image}
-                                alt={item.name}
-                                className="w-full h-48 object-cover"
-                            />
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold">{item.name}</h3>
-                                <p className="text-blue-600 font-bold">{item.price}</p>
-                               
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
     );
+  }
+
+  if (error || !product) {
+    return (
+      <div className="min-h-screen bg-gray-100 p-6 flex items-center justify-center">
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <h1 className="text-2xl font-bold text-red-600">
+            {error || "Product Not Found"}
+          </h1>
+          <button
+            onClick={() => navigate("/")}
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+          >
+            Return to Home
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const relatedProducts = data
+    .filter((item) => item.id.toString() !== id)
+    .slice(0, 8);
+
+  return (
+    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+      {/* Back Button */}
+      <div className="max-w-4xl mx-auto mb-4">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center text-blue-600 hover:text-blue-800"
+        >
+          <svg
+            className="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Back
+        </button>
+      </div>
+
+      {/* Product Details */}
+      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="md:flex">
+          <div className="md:flex-shrink-0">
+            <img
+              className="h-96 w-full object-cover md:w-96"
+              src={product.image}
+              alt={product.name}
+            />
+          </div>
+          <div className="p-8">
+            <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
+            <p className="mt-2 text-2xl text-blue-600 font-bold">
+              {product.price}
+            </p>
+            <p className="mt-4 text-gray-600">{product.description}</p>
+
+            {/* Features */}
+            <div className="mt-6">
+              <h2 className="text-xl font-semibold text-gray-900">Features</h2>
+              <ul className="mt-2 list-disc list-inside text-gray-600">
+                {product.features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Related Products */}
+      <div className="max-w-4xl mx-auto mt-12">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          You Might Also Like
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedProducts.map((item) => (
+            <div
+              key={item.id}
+              onClick={() => navigate(`/product/${item.id}`)}
+              className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform transition hover:scale-105"
+            >
+              <img
+                className="w-full h-48 object-cover"
+                src={item.image}
+                alt={item.name}
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.name}
+                </h3>
+                <p className="text-blue-600 font-bold mt-1">{item.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ProductDetails;
