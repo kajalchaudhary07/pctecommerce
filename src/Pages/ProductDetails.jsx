@@ -12,8 +12,10 @@ const ProductDetails = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
+  }, [id]);
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
   useEffect(() => {
     try {
       const foundProduct = data.find((item) => item.id.toString() === id);
@@ -57,6 +59,7 @@ const ProductDetails = () => {
 
   const relatedProducts = data
     .filter((item) => item.id.toString() !== id)
+    .sort(() => Math.random() - 0.5)
     .slice(0, 8);
 
   return (
@@ -87,7 +90,10 @@ const ProductDetails = () => {
       {/* Product Details */}
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="md:flex">
-          <div className="md:flex-shrink-0">
+          <div
+            className="md:flex-shrink-0"
+            onClick={() => handleProductClick(product.id)}
+          >
             <img
               className="h-96 w-full object-cover md:w-96"
               src={product.image}

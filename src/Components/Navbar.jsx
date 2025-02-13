@@ -1,6 +1,9 @@
 import React from "react";
 import img from "../media/new_logo-removebg-preview.png";
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <nav className="bg-[#e5e7fb] shadow-lg">
       <div className="max-w-5xl mx-auto px-4">
@@ -36,7 +39,21 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-
+          {/* Products */}
+          <div className="ml-4 flex items-center">
+            <svg
+              className="h-6 w-6 text-gray-600 cursor-pointer"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              onClick={() => navigate("/")}
+            >
+              <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+          </div>
           {/* User Logo */}
           <div className="ml-4 flex items-center">
             <div className="h-8 w-8 rounded-full bg-gray-200">
@@ -44,6 +61,7 @@ const Navbar = () => {
                 className="h-8 w-8 rounded-full cursor-pointer"
                 src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
                 alt="User avatar"
+                onClick={() => navigate("/user")}
               />
             </div>
           </div>
