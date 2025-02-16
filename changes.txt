@@ -1,0 +1,4 @@
+# need to change:
+1. card structure (make it smaller and more organized)
+2. fix carousel on main screen
+3. add same card carousel on the next page
