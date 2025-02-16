@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { data } from "../data/data";
+import Card from "../Components/Card";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,16 +37,16 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Hero Section with Image Carousel */}
-      <section className="relative bg-gray-900 text-white text-center py-4 h-[60vh]">
+      <section className="relative bg-gray-900 text-white text-center py-4 h-[70vh]">
         <div className="mx-auto px-6 h-full">
           <h1 className="text-4xl font-bold mb-2 py-2">
             {featuredImages[topIndex].title}
           </h1>
 
           {/* Image Carousel */}
-          <div className="w-full h-[70%] overflow-hidden relative">
+          <div className="w-full h-[100%] overflow-hidden relative">
             <div
-              className="w-full h-full absolute top-0 left-0 cursor-pointer transition-transform duration-500"
+              className="w-full h-[75%] absolute top-0 left-0 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               onClick={changeTopImage}
             >
               <img
@@ -73,68 +74,60 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Products Grid Section */}
+      {/* Products Carousel Section */}
       <section className="py-12 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">
             Featured Products
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {data.slice(0, 8).map((product, index) => {
-              // If product data is incomplete, log warning and skip rendering
-              if (!product || product.name === undefined) {
-                console.warn("Invalid product data:", product);
-                return null;
-              }
+          <div className="relative">
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${topIndex * 100}%)` }}
+              >
+                {data.slice(0, 8).map((product, index) => {
+                  if (!product || product.name === undefined) {
+                    console.warn("Invalid product data:", product);
+                    return null;
+                  }
 
-              // Use product.id if available, otherwise use the index as fallback
-              const productKey =
-                product.id !== undefined
-                  ? `product-${product.id}`
-                  : `product-${index}`;
-
-              return (
-                <div
-                  key={productKey}
-                  onClick={() => handleProductClick(product.id)}
-                  className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105"
-                >
-                  <div className="relative pb-[100%]">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="absolute top-0 left-0 w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {product.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                      {product.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <p className="text-blue-600 font-bold text-lg">
-                        ₹{product.price}
-                      </p>
-                      {product.reviews && product.reviews.length > 0 && (
-                        <div className="flex items-center">
-                          <span className="text-yellow-400">★</span>
-                          <span className="text-gray-600 text-sm ml-1">
-                            {(
-                              product.reviews.reduce(
-                                (acc, review) => acc + review.rating,
-                                0
-                              ) / product.reviews.length
-                            ).toFixed(1)}
-                          </span>
+                  return (
+                    <div className="min-w-full flex justify-center gap-4">
+                      {data.slice(index * 5, (index + 1) * 5).map((p) => (
+                        <div key={p.id} className="w-64 h-96">
+                          <Card
+                            product={p}
+                            onClick={() => handleProductClick(p.id)}
+                            className="w-full h-full"
+                          />
                         </div>
-                      )}
+                      ))}
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
+            <button
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-r"
+              onClick={() =>
+                setTopIndex(
+                  (prev) =>
+                    (prev - 1 + Math.ceil(data.length / 5)) %
+                    Math.ceil(data.length / 5)
+                )
+              }
+            >
+              ←
+            </button>
+            <button
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-l"
+              onClick={() =>
+                setTopIndex((prev) => (prev + 1) % Math.ceil(data.length / 5))
+              }
+            >
+              →
+            </button>
           </div>
         </div>
       </section>

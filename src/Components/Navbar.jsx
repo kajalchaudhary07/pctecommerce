@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <nav className="bg-[#e5e7fb] shadow-lg">
-      <div className="max-w-5xl mx-auto px-4">
+    <nav className="bg-[#e5e7fb] shadow-lg w-full">
+      <div className="max-w-full px-4 mx-auto pl-32 pr-12">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          {/* <div className="flex-shrink-0">
             <img className="h-32 w-auto" src={img} alt="Logo" />
-          </div>
+          </div> */}
 
           {/* Search Bar */}
           <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
@@ -38,21 +38,6 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-          </div>
-          {/* Products */}
-          <div className="ml-4 flex items-center">
-            <svg
-              className="h-6 w-6 text-gray-600 cursor-pointer"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              onClick={() => navigate("/")}
-            >
-              <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-            </svg>
           </div>
           {/* User Logo */}
           <div className="ml-4 flex items-center">
