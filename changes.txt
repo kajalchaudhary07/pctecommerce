@@ -2,3 +2,8 @@
 1. card structure (make it smaller and more organized)
 2. fix carousel on main screen
 3. add same card carousel on the next page
+
+4. 5x3 grid for product display
+5. hero section smaller (amazon size, 20%svh) so that below the products are visible 
+6. add about, blogs & contact section in the footer
+7. 
